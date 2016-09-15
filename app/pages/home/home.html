@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title style="text-align: center">
+      DXR's 5 day weather app
+    </ion-title>
+    <ion-segment >
+    	<ion-segment-button value="C" style="max-width: 20px;float: right">
+    		C
+    	</ion-segment-button>
+    	<ion-segment-button class="segment-activated" value="F" style="max-width: 20px;float: right">
+    		F
+    	</ion-segment-button>
+    </ion-segment>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <h2>{{city.name}}<br>5 Day Forcast</h2>
+ <hr>
+ <div style="text-align: center">
+	<ion-spinner [hidden]="isDoneLoading"></ion-spinner>
+ 	<div [hidden]="!isDoneLoading" style="text-align: center">
+	    <div *ngFor='let day of basicFiveDayForcast' class="dayBox">
+	      <p>{{day.dayOfWeek}}</p>
+	      <p>{{day.date}}</p>
+	      <hr>
+	      <!-- <p>{{day.currentTemp}} &#8457;</p> -->
+	      <p>High: {{day.highTemp}} &#8457;</p>
+	      <p>Low: {{day.lowTemp}} &#8457;</p>
+	      <p> </p>
+	    </div>
+    </div>
+    <h5>vvv 3 hour details vvv</h5>
+    <hr>
+ 	<div [hidden]="!isDoneLoading" style="text-align: center">
+	    <div class="threeHourBox">
+	      Hello
+	    </div>
+	    <div class="threeHourBox">
+	      Hello
+	    </div>
+	    <div class="threeHourBox">
+	      Hello
+	    </div>
+	    <div class="threeHourBox">
+	      Hello
+	    </div>
+	    <div class="threeHourBox">
+	      Hello
+	    </div>
+	    <div class="threeHourBox">
+	      Hello
+	    </div>
+	    <div class="threeHourBox">
+	      Hello
+	    </div>
+	    <div  class="threeHourBox">
+	    Good Bye
+	    </div>
+    </div>
+ </div>
+
+
+</ion-content>
+<ion-footer class="footer">
+	  	<h5 class="title" style="color: black">
+<!-- 	  		<img src="/build/img/homephone.png" height=40%> -->
+	  		 by Dan Riley
+	  	</h5>
+</ion-footer>
