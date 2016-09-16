@@ -15,56 +15,37 @@
 </ion-header>
 
 <ion-content padding>
- <h2>{{city.name}}<br>5 Day Forcast</h2>
- <hr>
- <div style="text-align: center">
-	<ion-spinner [hidden]="isDoneLoading"></ion-spinner>
- 	<div [hidden]="!isDoneLoading" style="text-align: center">
-	    <div *ngFor='let day of basicFiveDayForcast' class="dayBox">
-	      <p>{{day.dayOfWeek}}</p>
-	      <p>{{day.date}}</p>
-	      <hr>
-	      <!-- <p>{{day.currentTemp}} &#8457;</p> -->
-	      <p>High: {{day.highTemp}} &#8457;</p>
-	      <p>Low: {{day.lowTemp}} &#8457;</p>
-	      <p> </p>
-	    </div>
-    </div>
-    <h5>vvv 3 hour details vvv</h5>
-    <hr>
- 	<div [hidden]="!isDoneLoading" style="text-align: center">
-	    <div class="threeHourBox">
-	      Hello
-	    </div>
-	    <div class="threeHourBox">
-	      Hello
-	    </div>
-	    <div class="threeHourBox">
-	      Hello
-	    </div>
-	    <div class="threeHourBox">
-	      Hello
-	    </div>
-	    <div class="threeHourBox">
-	      Hello
-	    </div>
-	    <div class="threeHourBox">
-	      Hello
-	    </div>
-	    <div class="threeHourBox">
-	      Hello
-	    </div>
-	    <div  class="threeHourBox">
-	    Good Bye
-	    </div>
-    </div>
- </div>
-
-
+ 	<h2>{{city.name}}<br>5 Day Forcast</h2>
+ 	<hr>
+	<div [hidden]="isDoneLoading" style="text-align: center">
+		<ion-spinner style="text-align:center"></ion-spinner>
+	</div>
+	<div style="text-align: center">
+		<div [hidden]="!isDoneLoading"  class="container">
+		    <div *ngFor='let day of basicFiveDayForcast' class="dayBox">
+		      <p class="dayOfWeek">{{day.dayOfWeek}}</p>
+		      <p>{{day.date}}</p>
+		      <hr>
+		      <p>High: {{day.highTemp}} &#8457;</p>
+		      <p>Low: {{day.lowTemp}} &#8457;</p>
+		      <p> </p>
+		    </div>
+    	</div>
+	    <hr>
+	    <h5>vvv 3 hour details vvv</h5>
+	    <hr>
+	  	<div *ngFor='let aDay of basicFiveDayForcast' class="container">
+	    	<p class="dayOfWeek">{{aDay.dayOfWeek}} - Every 3 hour forcast</p>
+		    <div *ngFor='let threeHour of aDay.threeHourForcast' class="threeHourBox">
+		      <p>Hour:{{threeHour.dt_txt.substring(11,13)}}</p>
+		      <p>{{threeHour.main.temp}}</p>
+		    </div>
+		 </div>
+ 	</div>
 </ion-content>
+
 <ion-footer class="footer">
-	  	<h5 class="title" style="color: black">
-<!-- 	  		<img src="/build/img/homephone.png" height=40%> -->
+	  	<h5 class="title" style="color: grey">
 	  		 by Dan Riley
 	  	</h5>
 </ion-footer>
