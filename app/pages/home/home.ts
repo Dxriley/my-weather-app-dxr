@@ -3,6 +3,10 @@ import { NavController } from 'ionic-angular';
 
 import { WeatherService } from "../../providers/weather-service/weather-service";
 
+//FuBar! I need to change all the date-times to local weather time! OMG... :(
+
+
+
 //TODO: figure how to do interfaces and initialize fctn... or perhaps do objects --Riley
 // interface City {
 //   name: string;
