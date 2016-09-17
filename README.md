@@ -7,6 +7,7 @@
     * open a terminal window and change to the cloned directory
     * in terminal window type 'ionic serve'
     * This should build and open the web site
+
 ## TODO's
   * BUG: Adjust the date-time to be in the City's weather time zone
   * 
