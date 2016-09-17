@@ -20,8 +20,8 @@
 	<div [hidden]="isDoneLoading" style="text-align: center">
 		<ion-spinner style="text-align:center"></ion-spinner>
 	</div>
-	<div style="text-align: center">
-		<div [hidden]="!isDoneLoading"  class="container">
+	<div [hidden]="!isDoneLoading" style="text-align: center">
+		<div  class="container">
 		    <div *ngFor='let day of basicFiveDayForcast' class="dayBox">
 		      <p class="dayOfWeek">{{day.dayOfWeek}}</p>
 		      <p>{{day.date}}</p>
