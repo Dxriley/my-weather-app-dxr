@@ -7,6 +7,9 @@
     * open a terminal window and change to the cloned directory
     * in terminal window type 'ionic serve'
     * this should build and open the local web site
+  * As changes occur with ionic serve running it will live build and reload
+  * No automated tests, all testing was manual
+    * I have not used use Jasmine or Karma, but they seem to be favored for automated tests
 
 ## TODO's
   * BUG: Adjust the date-time to be in the City's weather time zone
