@@ -26,8 +26,8 @@
 		      <p class="dayOfWeek">{{day.dayOfWeek}}</p>
 		      <p>{{day.date}}</p>
 		      <hr>
-		      <p>High: {{day.highTemp}} &#8457;</p>
-		      <p>Low: {{day.lowTemp}} &#8457;</p>
+		      <p>High: {{day.highTemp}} <span [innerHTML]="day.unitOfMeasureSymbol"></span></p>
+		      <p>Low: {{day.lowTemp}} <span [innerHTML]="day.unitOfMeasureSymbol"></span></p>
 		      <p> </p>
 		    </div>
     	</div>
@@ -38,7 +38,7 @@
 	    	<p class="dayOfWeek">{{aDay.dayOfWeek}} - Every 3 hour forcast</p>
 		    <div *ngFor='let threeHour of aDay.threeHourForcast' class="threeHourBox">
 		      <p>Hour:{{threeHour.dt_txt.substring(11,13)}}</p>
-		      <p>{{threeHour.main.temp}}</p>
+		      <p>{{threeHour.main.temp}} <span [innerHTML]="aDay.unitOfMeasureSymbol"></span></p>
 		    </div>
 		 </div>
  	</div>

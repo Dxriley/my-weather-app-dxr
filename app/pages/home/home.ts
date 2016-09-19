@@ -68,13 +68,15 @@ export class HomePage {
              currentHumidity: 1000,
                  weatherMain: null,
                  weatherIcon: null,
-            threeHourForcast:  []
+            threeHourForcast:  [],
+         unitOfMeasureSymbol: "&#8457;"
           };
         var tempDay3HourForcastArray = [];
         for (var j = 0; j <= this.fiveDayEvery3Hours.length - 1; j++) {
-          // var aDate = new Date(this.fiveDayEvery3Hours[j].dt*1000); //REMOVE: Miss understood this value --Riley
+          var aDate = new Date(this.fiveDayEvery3Hours[j].dt*1000); //REMOVE: Miss understood this value --Riley
           //2016-09-17 09:00:00 //REMOVE: dt_txt format for substring --Riley
-
+          console.log(aDate.toISOString());
+          console.log(this.fiveDayEvery3Hours[j].dt_txt);
           var theDay = this.fiveDayEvery3Hours[j].dt_txt.substring(8,10);
           var theMonth = this.fiveDayEvery3Hours[j].dt_txt.substring(5,7);
           var theYear = this.fiveDayEvery3Hours[j].dt_txt.substring(0,4);
@@ -100,7 +102,8 @@ export class HomePage {
                  currentHumidity: 1000,
                      weatherMain: null,
                      weatherIcon: null,
-                threeHourForcast:[]
+                threeHourForcast:[],
+             unitOfMeasureSymbol: "&#8457;"
             };
             // i = i + 1;
             previousDate = theDate;
