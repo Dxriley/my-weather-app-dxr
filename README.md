@@ -10,6 +10,7 @@
   * As changes occur with ionic serve running it will live build and reload
   * No automated tests, all testing was manual
     * I have not used use Jasmine or Karma, but they seem to be favored for automated tests
+    * Worked in Safari and Chrome.  Did not work in IE9.
 
 ## TODO's
   * BUG: Adjust the date-time to be in the City's weather time zone
