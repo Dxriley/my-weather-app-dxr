@@ -46,7 +46,7 @@ export class HomePage {
 
   getTheWeatherFor(apiCity) {
   	this.isDoneLoading = false;
-  	this.weather.getWeather(this.city.apiCity)
+  	this.weather.getWeather(this.city.apiCity,"imperial")
   		.then(weatherData => {
         //Assumption data will stay cronologically ordered and ascending
         this.fiveDayEvery3Hours = weatherData["list"];
@@ -140,6 +140,10 @@ export class HomePage {
   			console.log("*** ERROR getting weather data-->"+err);
         this.isDoneLoading = true;
   		});
+  }
+
+  changeUnitsOfMeasure(uom){
+
   }
 
 }

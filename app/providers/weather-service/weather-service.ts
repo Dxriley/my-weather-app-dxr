@@ -9,7 +9,7 @@ export class WeatherService {
   
   constructor(private http: Http) {}
 
-  getWeather(city:string) {
+  getWeather(city:string,units:string) {
   	// * http://api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml&appid=37ecf81509e93c40807891b21e96363c
     // * Examples of API calls:
     // * standard api.openweathermap.org/data/2.5/find?q=London
@@ -19,7 +19,9 @@ export class WeatherService {
   	var baseURL = "http://api.openweathermap.org/data/2.5/forecast?q=";
   	var modeURLComponent = "&mode=json";
     //TODO: pass units as parameter --Riley
-  	var units = "imperial";  //units options metric or imperial
+  	if (units==null){ //set default to imperial
+      units = "imperial";  //units options metric or imperial
+    }
    	var getRequestURL = baseURL + city + modeURLComponent + "&appid=" + appId + "&units="+units;
    	var forecast : any;
 
