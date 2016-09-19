@@ -4,10 +4,10 @@
       DXR's 5 day weather app
     </ion-title>
     <ion-segment >
-    	<ion-segment-button value="C" style="max-width: 20px;float: right">
+    	<ion-segment-button (click)="changeUnitsOfMeasure('metric')" value="C" style="max-width: 20px;float: right">
     		C
     	</ion-segment-button>
-    	<ion-segment-button class="segment-activated" value="F" style="max-width: 20px;float: right">
+    	<ion-segment-button (click)="changeUnitsOfMeasure('imperial')" class="segment-activated" value="F" style="max-width: 20px;float: right">
     		F
     	</ion-segment-button>
     </ion-segment>

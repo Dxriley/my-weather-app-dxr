@@ -36,17 +36,18 @@ export class HomePage {
   fiveDayEvery3Hours : any;
   dayOfTheWeek = new Array(7);
   basicFiveDayForcast = [];
+  uom = "imperial";
 
 
   constructor(public navCtrl: NavController, public weather: WeatherService) {
-  	this.getTheWeatherFor(this.city.apiCity);
+  	this.getTheWeatherFor(this.city.apiCity,this.uom);
     this.dayOfTheWeek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
     
   }
 
-  getTheWeatherFor(apiCity) {
+  getTheWeatherFor(apiCity:string, uom:string) {
   	this.isDoneLoading = false;
-  	this.weather.getWeather(this.city.apiCity,"imperial")
+  	this.weather.getWeather(this.city.apiCity,uom)
   		.then(weatherData => {
         //Assumption data will stay cronologically ordered and ascending
         this.fiveDayEvery3Hours = weatherData["list"];
@@ -58,6 +59,10 @@ export class HomePage {
         var i = 0;
 
         this.basicFiveDayForcast = [];
+        var uomSymbol = "&#8457;"; //default imperial symbol
+        if (uom == 'metric') {
+          uomSymbol = "&#8451;";
+        }
 
         var oneDayForcast = {
                    dayOfWeek: null,
@@ -69,7 +74,7 @@ export class HomePage {
                  weatherMain: null,
                  weatherIcon: null,
             threeHourForcast:  [],
-         unitOfMeasureSymbol: "&#8457;"
+         unitOfMeasureSymbol: uomSymbol
           };
         var tempDay3HourForcastArray = [];
         for (var j = 0; j <= this.fiveDayEvery3Hours.length - 1; j++) {
@@ -103,7 +108,7 @@ export class HomePage {
                      weatherMain: null,
                      weatherIcon: null,
                 threeHourForcast:[],
-             unitOfMeasureSymbol: "&#8457;"
+             unitOfMeasureSymbol: uomSymbol
             };
             // i = i + 1;
             previousDate = theDate;
@@ -142,8 +147,12 @@ export class HomePage {
   		});
   }
 
-  changeUnitsOfMeasure(uom){
-
+  changeUnitsOfMeasure(uom:string){
+    console.log("Button clicked!")
+    if (this.uom != uom) {
+      this.uom = uom;
+      this.getTheWeatherFor(this.city.apiCity, uom);
+    }
   }
 
 }
